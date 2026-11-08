@@ -69,7 +69,13 @@ def saison_gewichte() -> dict:
     Gibt {"2024Q1": gewicht, ..., "2025Q4": gewicht} zurueck.
     """
     # TODO(human): Saisonale Schwankung festlegen (aktuell flach = keine Saison).
-    return {q: 1.0 for q in QUARTALE}
+    basis = {1: 100, 2: 105, 3: 88, 4: 112}
+    jahresfaktor = {2024: 1.00, 2025: 1.03}
+    return {
+        f"{jahr}Q{q}": basis[q] * jahresfaktor[jahr]
+        for jahr in jahresfaktor
+        for q in range(1,5)
+    }
 
 
 def quartal_grenzen():
