@@ -68,7 +68,6 @@ def saison_gewichte() -> dict:
 
     Gibt {"2024Q1": gewicht, ..., "2025Q4": gewicht} zurueck.
     """
-    # TODO(human): Saisonale Schwankung festlegen (aktuell flach = keine Saison).
     basis = {1: 100, 2: 105, 3: 88, 4: 112}
     jahresfaktor = {2024: 1.00, 2025: 1.03}
     return {
